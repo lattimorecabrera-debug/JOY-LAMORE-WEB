@@ -1,0 +1,670 @@
+/* filepath: c:\Users\LATTIMORE\Documents\Nicepage Templates\JOY LAMORE WEB\about.css */
+body {
+    background: url(bg.jpg);
+    padding-top: 160px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5em;
+}
+
+#main_menu { width: 100%; position: fixed; top: 0;
+    left: 0;
+    background: #fff; /* importante para que no sea transparente */
+    z-index: 9999;
+}
+
+.inner_main_menu {
+    margin: 0 auto 0 170px; 
+    width: 1170px;
+}
+
+.inner_main_menu ul {
+    margin: 0;
+    padding: 20px 0 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 100px;
+}
+
+.inner_main_menu ul li {
+    display: inline-block;
+    position: relative;
+}
+
+/* Primeros 2 elementos a la izquierda */
+.inner_main_menu ul li:nth-child(-n+2) {
+    margin-right: auto;
+}
+
+/* Últimos 2 elementos + logo sin margen extra */
+.inner_main_menu ul li:nth-child(n+3) {
+    margin-left: 0;
+}
+
+/* Home con margen izquierdo */
+.inner_main_menu ul li:first-child {
+    margin-left: 60px;
+}
+
+/* Contact con margen derecho */
+.inner_main_menu ul li:last-child {
+    margin-right: 60px;
+}
+
+.inner_main_menu ul li a {
+    color: #262626;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+
+.inner_main_menu ul li a:hover {
+    color: #f70606;
+}
+
+/* ====== SUBMENÚ ====== */
+.inner_main_menu ul li ul {
+    position: absolute;
+    top: 40px;
+    left: -9999px;
+    width: 200px;
+    background: #262626;
+    padding: 0;
+}
+
+.inner_main_menu ul li:hover > ul {
+    left: 0;
+}
+
+.inner_main_menu ul li ul li {
+    width: 100%;
+    text-align: left;
+}
+
+.inner_main_menu ul li ul li a {
+    color: #fff;
+    text-transform: capitalize;
+    font-size: 15px;
+}
+
+.inner_main_menu ul li ul li a:hover {
+    background: #ddd;
+    color: #262626;
+}
+
+/* ====== SUBMENÚ NIVEL 2 ====== */
+.inner_main_menu ul li ul li ul {
+    top: 0;
+    left: -9999px;
+}
+
+.inner_main_menu ul li ul li:hover > ul {
+    left: 200px;
+}
+
+/* ====== LOGO ====== */
+.inner_main_menu ul li.logo_space {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.logo_img {
+    max-width: 150px;
+    height: auto;
+    display: block;
+}
+
+/* ====== SLICKNAV ====== */
+.slicknav_menu {
+    background: transparent;
+    font-size: 16px;
+    padding: 5px;
+    display: none;
+    position: fixed;
+    right: 0;
+    width: 100%;
+    z-index: 99999;
+}
+
+ul.slicknav_nav {
+    background: #262626;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 80%;
+}
+
+.slicknav_btn {
+    top: 35px;
+}
+
+.about-text {
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: 40px;
+}
+
+/* CONTENEDOR INTERNO */
+.about-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* TEXTO PRINCIPAL */
+.line {
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 3px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #111;
+    margin-bottom: 40px;
+}
+
+/* Aumentar especificidad para asegurar que Playfair se aplique */
+.about-text .line {
+    font-family: 'Playfair Display', serif !important;
+    font-weight: 400 !important;
+}
+
+/* SEGUNDO BLOQUE */
+.secondary {
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 4px;
+    text-align: center;
+    color: #555;
+}
+
+/* RESALTADO SUTIL */
+.highlight {
+    display: block;
+    margin-top: 25px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    color: #000;
+    text-align: center;
+}
+
+/* ====== SECCIÓN ABOUT (ESCRITORIO) ====== */
+.about-section {
+    width: auto;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px 20px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.about-wrapper {
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin: 0 auto;
+    padding-left: 0;
+    box-sizing: border-box;
+    text-align: center;
+    width: 100%;
+}
+
+/* LADO IZQUIERDO (ahora encima) */
+.about-left {
+    width: 100%;
+}
+
+.about-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    letter-spacing: 6px;
+    color: #111;
+    text-align: center;
+    margin: 0 0 10px 0;
+}
+
+/* LADO DERECHO (ahora debajo) */
+.about-right {
+    width: 100%;
+}
+
+.about-right p {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    line-height: 1.9;
+    letter-spacing: 1px;
+    color: #444;
+    margin-bottom: 35px;
+    max-width: 800px;
+    margin-left: auto; margin-right: auto;
+    text-align: center;
+}
+
+/* Quitar espacio extra después del último párrafo antes del thank-you */
+.about-right p:last-child {
+    margin-bottom: 8px;
+}
+
+/* THANK YOU centered */
+.thank-section {
+    width: 100%;
+    padding: 10px 10px 24px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
+.thank-you {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    letter-spacing: 4px;
+    color: #111;
+    text-align: center;
+}
+
+/* ====== EXPERIENCE / SELECTED LINKS ====== */
+.experience {
+    max-width: 1170px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    padding: 40px 20px;
+    background: transparent;
+    text-align: center;
+}
+
+.experience-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    color: #000000;
+    margin-bottom: 40px;
+}
+
+.experience-list {
+    margin: 0 auto 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1170px;
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+}
+
+.experience-item {
+    padding: 30px;
+    background: #f5f5f5;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.experience-item strong {
+    display: block;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    font-size: 16px;
+    color: #000000;
+}
+
+.experience-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    width: 100%;
+}
+
+.experience-links .links-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+}
+
+
+.experience-list a {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #262626;
+    padding: 8px 16px;
+    border: 1px solid #262626;
+    transition: 0.3s;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.experience-list a:hover {
+    background: #262626;
+    color: #fff;
+}
+
+.credits-section {
+    width: calc(100% - 40px);
+    max-width: 1170px;
+    padding: 5px 20px 20px 20px;
+    margin: 0 auto;
+    margin-top: 0;
+    text-align: center;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.credits-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    color: #c41e3a;
+    margin: 0 0 30px 0;
+}
+
+.credits-table {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.credits-table td {
+    border: 1px solid #262626;
+    padding: 12px 16px;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #262626;
+}
+
+/* ====== SLIDER DE FOTOS ====== */
+.slider {
+    width: 100%;
+}
+
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+    background: #f9f9f9;
+}
+
+.slider-wrapper {
+    display: flex;
+    animation: slide 15s linear infinite;
+}
+
+.slider-slide {
+    flex: 0 0 33.33%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+/* ====== RESPONSIVE ====== */
+@media only screen and (max-width: 1200px) {
+    .inner_main_menu {
+        width: 95%;
+    }
+    
+    .inner_main_menu ul {
+        gap: 50px;
+    }
+    
+    .experience-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .slicknav_menu {
+        display: block;
+    }
+    
+    .inner_main_menu {
+        display: none;
+    }
+    
+    body {
+        padding-top: 100px;
+    }
+    
+    .logo_img {
+        width: 80px;
+        height: auto;
+    }
+    
+    .about-section {
+        padding: 140px 20px;
+    }
+    
+    .about-wrapper {
+        max-width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .about-title {
+        font-size: 28px;
+        letter-spacing: 4px;
+    }
+    
+    .about-right p {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+    
+    .thank-you {
+        font-size: clamp(14px, 3.8vw, 22px);
+        letter-spacing: 1.5px;
+        white-space: nowrap;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .experience-title {
+        font-size: 24px;
+    }
+    
+    .experience-list {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .experience-item {
+        padding: 20px;
+    }
+    
+    .credits-title {
+        font-size: 22px;
+    }
+
+    .credits-section {
+        width: calc(100% - 14px);
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 5px 0 20px;
+    }
+
+    .credits-table {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        display: block;
+        border-collapse: separate;
+    }
+
+    .credits-table tbody,
+    .credits-table tr,
+    .credits-table td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .credits-table tr {
+        margin-bottom: 10px;
+    }
+
+    .credits-table td {
+        margin: 0 0 10px 0;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+    }
+    
+    .slider-slide {
+        flex: 0 0 50%;
+        height: 250px;
+    }
+    
+    .slider-wrapper {
+        animation: slide 10s linear infinite;
+    }
+    
+    .line {
+        font-size: 24px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    body {
+        padding-top: 80px;
+        font-size: 14px;
+    }
+    
+    .about-section {
+        padding: 100px 15px;
+    }
+    
+    .about-title {
+        font-size: 22px;
+        letter-spacing: 2px;
+    }
+    
+    .about-right p {
+        font-size: 15px;
+    }
+    
+    .thank-you {
+        font-size: 13px;
+        letter-spacing: 1px;
+        white-space: nowrap;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .slider-slide {
+        flex: 0 0 100%;
+        height: 200px;
+    }
+    
+    .experience-title {
+        font-size: 20px;
+    }
+    
+    .line {
+        font-size: 20px;
+    }
+
+    .credits-table td {
+        font-size: 13px;
+        padding: 10px 12px;
+    }
+}
+
+/* ====== FOOTER ====== */
+.footer {
+    background: #fff;
+    padding: 60px 20px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+.footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.book-shoot-btn {
+    display: inline-block;
+    background: #262626;
+    color: #fff;
+    padding: 24px 60px;
+    border: 2px solid #262626;
+    border-radius: 6px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 40px;
+}
+
+.book-shoot-btn:hover {
+    background: #c41e3a;
+    color: #fff;
+    border-color: #c41e3a;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 10px;
+}
+
+.social-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.social-btn:hover img {
+    transform: scale(1.1);
+}

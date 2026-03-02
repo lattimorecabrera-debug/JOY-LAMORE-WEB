@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Joy Lamore | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400" rel="stylesheet">
+  <link rel="stylesheet" href="contact.css?v=16">
+    <link rel="stylesheet" href="../responsive.css?v=7">
+</head>
+<body>
+
+    <header id="main_menu">
+      <div class="inner_main_menu">
+        <ul id="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="logo_space">
+                    <img src="../../images/LOGO JLJOYSMALL.png" alt="Logo" class="logo_img">
+                </li>
+                <li><a href="mywork.html">My Work</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section id="contacto" class="contact-section">
+  <div class="contact-container">
+
+    <h2 class="contact-title">CONTACT ME</h2>
+
+    <p class="contact-desc">
+      We have already worked together? Would you like to book a photo session with me now or in the future? Fill out the form below to get on my contact list.
+      <br><br>
+      You will be informed of all the news, events and trips before anyone else!
+    </p>
+
+    <form id="contactForm" action="/submit-form" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your full name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="city-country">City/Country</label>
+        <input type="text" id="city-country" name="city-country" placeholder="Where do you live?" required>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="What is this about?">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell me more about your project..." rows="6" required></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">Send Message</button>
+    </form>
+
+  </div>
+</section>
+</main>
+    
+    <section id="remote-shoot" class="remote-shoot-section">
+
+  <h2 class="section-title">REMOTE SHOOTS</h2>
+
+  <p class="intro-text">
+    Imagine you are a photographer who’d love to have a shooting with me but we are miles away. Is there any solution? YES! REMOTE SHOOTING can easily sort this out
+  </p>
+
+  <p class="description">
+    We do everything over the internet. We discuss the location, my looks and style beforehand.
+    Remote shooting is a new way of shooting, allowing photographers from virtually anywhere in the world to photograph me from my location through the wonders of modern technology. This method allows for quality images to be taken and for photographers to have control over the settings of the camera, unlike zoom/facetime shoots. In short: I set up my camera on a tripod and connect it to my laptop with Canon EOS utility software, which you remotely control on your laptop via TeamViewer. We then use Skype or another app to make a voice call to communicate. There is an assistant that would help moving the camera, etc.
+  </p>
+
+  <a class="remote-cta" href="remote.html">DISCOVER REMOTE SHOOTING</a>
+
+  <div class="image-gallery">
+    <img src="../../images/IMG_8279.webp" alt="Remote shoot example 1">
+    <img src="../../images/IMG_8321.webp" alt="Remote shoot example 2">
+    <img src="../../images/IMG_8337-2.webp" alt="Remote shoot example 3">
+  </div>
+
+  <h3 class="form-title">REQUEST YOUR REMOTE SHOOT</h3>
+
+  <form class="remote-shoot-form">
+    <label for="remote-name">Name*</label>
+    <input type="text" id="remote-name" name="remote-name" required>
+
+    <label for="remote-email">Email*</label>
+    <input type="email" id="remote-email" name="remote-email" required>
+  <label for="remote-subject">Subject</label>
+    <input type="text" id="remote-subject" name="remote-subject" value="Remote shoot request" readonly>
+    <label for="shoot-date">Preferred Shoot Date</label>
+    <input type="date" id="shoot-date" name="shoot-date">
+
+    <label for="details">Details / Notes</label>
+    <textarea id="details" name="details" placeholder="Tell me more about your idea..."></textarea>
+
+    <button type="submit">Send Request</button>
+  </form>
+
+</section>
+
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="social-links">
+            <a href="https://www.instagram.com/joylamore_?igsh=MWV4cHl0M21lMzdydQ==" target="_blank" class="social-btn" title="Instagram">
+              <img src="../../images/logos/instagram.png" alt="Instagram">
+            </a>
+            <a href="https://www.modelmayhem.com/4108915" target="_blank" class="social-btn" title="Model Mayhem">
+              <img src="../../images/logos/modemayhem.png" alt="Model Mayhem">
+            </a>
+            <a href="https://www.model-kartei.de/portfolios/model/533745/joy-lamore/" target="_blank" class="social-btn" title="Model Kartei">
+              <img src="../../images/logos/modelkartei.png" alt="Model Kartei">
+            </a>
+            <a href="https://modelsociety.com/Model/joy-lamore" target="_blank" class="social-btn" title="Model Society">
+              <img src="../../images/logos/modelsoceity.png" alt="Model Society">
+            </a>
+          </div>
+        </div>
+      </footer>
+
+</body>
+</html>
