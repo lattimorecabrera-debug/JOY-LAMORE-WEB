@@ -12,7 +12,7 @@ html {
 body { 
                
 
-    background: url(../../images/_DSC4427.jpg);  background-size: contain;
+  background: url(../images/_DSC4427.jpg);  background-size: contain;
     background-repeat: no-repeat;
 
     padding-top:160px; 
@@ -355,7 +355,7 @@ ul.slicknav_nav {
   width: 100%;
   margin: 0;
   padding: 80px 30px;
-  background-image: url(../../images/_DSC4427.jpg);
+   background-image: url(../images/_DSC4427.jp);
   background-color: #f5f5f5;
   background-size: cover;
   background-attachment: fixed;
