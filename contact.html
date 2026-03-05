@@ -163,16 +163,11 @@
       element.classList.remove('is-visible', 'is-error', 'is-success');
     }
 
-    async function handleAjaxSubmit(form, statusElement, defaultSuccessMessage, loadingText) {
+    function prepareNativeSubmit(form, statusElement, loadingText, event) {
       const submitButton = form.querySelector('button[type="submit"]');
-      const originalButtonHtml = submitButton ? submitButton.innerHTML : '';
-      const formData = new FormData(form);
-      const action = form.getAttribute('action') || '';
-      const ajaxAction = action.includes('formsubmit.co/')
-        ? action.replace('formsubmit.co/', 'formsubmit.co/ajax/')
-        : action;
 
       if (!navigator.onLine) {
+        event.preventDefault();
         showStatus(statusElement, 'No internet connection. Please reconnect and try again.', 'error');
         return;
       }
@@ -183,35 +178,6 @@
         submitButton.disabled = true;
         submitButton.classList.add('is-loading');
         submitButton.innerHTML = '<span class="btn-spinner" aria-hidden="true"></span><span>' + loadingText + '</span>';
-      }
-
-      try {
-        const response = await fetch(ajaxAction, {
-          method: 'POST',
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (!response.ok) {
-          throw new Error('Submit failed');
-        }
-
-        const nextUrl = form.querySelector('input[name="_next"]')?.value;
-        if (nextUrl) {
-          window.location.href = nextUrl;
-          return;
-        }
-
-        showStatus(statusElement, defaultSuccessMessage, 'success');
-        form.reset();
-      } catch (error) {
-        showStatus(statusElement, 'The form could not be sent right now. Please try again in a moment.', 'error');
-      } finally {
-        if (submitButton) {
-          submitButton.disabled = false;
-          submitButton.classList.remove('is-loading');
-          submitButton.innerHTML = originalButtonHtml;
-        }
       }
     }
 
@@ -227,24 +193,22 @@
 
     if (contactForm) {
       contactForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-        handleAjaxSubmit(
+        prepareNativeSubmit(
           contactForm,
           contactStatus,
-          'Your message was sent successfully. Thank you for contacting me.',
-          'Sending...'
+          'Sending...',
+          event
         );
       });
     }
 
     if (remoteForm) {
       remoteForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-        handleAjaxSubmit(
+        prepareNativeSubmit(
           remoteForm,
           remoteStatus,
-          'Your remote shoot request was sent successfully. I will contact you soon.',
-          'Sending request...'
+          'Sending request...',
+          event
         );
       });
     }
