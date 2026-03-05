@@ -1,13 +1,18 @@
 @media only screen and (min-width: 1025px) {
 	.inner_main_menu {
-		width: 1170px !important;
+		width: min(1040px, calc(100% - 180px)) !important;
 		margin: 0 auto !important;
 	}
 
 	.inner_main_menu ul {
 		justify-content: center !important;
-		gap: 28px !important;
+		gap: 16px !important;
 		padding: 10px 0 6px !important;
+	}
+
+	.inner_main_menu ul li.logo_space {
+		flex: 0 0 auto !important;
+		padding: 0 8px !important;
 	}
 
 	.inner_main_menu ul li a {
