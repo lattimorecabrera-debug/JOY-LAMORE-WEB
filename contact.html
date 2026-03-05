@@ -36,7 +36,13 @@
       You will be informed of all the news, events and trips before anyone else!
     </p>
 
-    <form id="contactForm" action="/submit-form" method="POST">
+    <div id="contact-form-status" class="form-status-message" role="status" aria-live="polite"></div>
+
+    <form id="contactForm" action="https://formsubmit.co/joylamoremodel@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New Contact Form Submission - joylamore.com">
+      <input type="hidden" name="_next" value="https://joylamore.com/contact.html?form=contact&sent=1">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" style="display:none">
       <div class="form-row">
         <div class="form-group">
           <label for="name">Name</label>
@@ -98,7 +104,13 @@
 
   <h3 class="form-title">REQUEST YOUR REMOTE SHOOT</h3>
 
-  <form class="remote-shoot-form">
+  <div id="remote-form-status" class="form-status-message" role="status" aria-live="polite"></div>
+
+  <form id="remoteShootForm" class="remote-shoot-form" action="https://formsubmit.co/joylamoremodel@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="Remote Shoot Request - joylamore.com">
+    <input type="hidden" name="_next" value="https://joylamore.com/contact.html?form=remote&sent=1">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="text" name="_honey" style="display:none">
     <label for="remote-name">Name*</label>
     <input type="text" id="remote-name" name="remote-name" required>
 
@@ -135,6 +147,119 @@
           </div>
         </div>
       </footer>
+
+<script>
+  (function () {
+    function showStatus(element, message, type) {
+      if (!element) return;
+      element.textContent = message;
+      element.classList.remove('is-error', 'is-success');
+      element.classList.add('is-visible', type === 'error' ? 'is-error' : 'is-success');
+    }
+
+    function hideStatus(element) {
+      if (!element) return;
+      element.textContent = '';
+      element.classList.remove('is-visible', 'is-error', 'is-success');
+    }
+
+    async function handleAjaxSubmit(form, statusElement, defaultSuccessMessage, loadingText) {
+      const submitButton = form.querySelector('button[type="submit"]');
+      const originalButtonHtml = submitButton ? submitButton.innerHTML : '';
+      const formData = new FormData(form);
+      const action = form.getAttribute('action') || '';
+      const ajaxAction = action.includes('formsubmit.co/')
+        ? action.replace('formsubmit.co/', 'formsubmit.co/ajax/')
+        : action;
+
+      if (!navigator.onLine) {
+        showStatus(statusElement, 'No internet connection. Please reconnect and try again.', 'error');
+        return;
+      }
+
+      hideStatus(statusElement);
+
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.classList.add('is-loading');
+        submitButton.innerHTML = '<span class="btn-spinner" aria-hidden="true"></span><span>' + loadingText + '</span>';
+      }
+
+      try {
+        const response = await fetch(ajaxAction, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (!response.ok) {
+          throw new Error('Submit failed');
+        }
+
+        const nextUrl = form.querySelector('input[name="_next"]')?.value;
+        if (nextUrl) {
+          window.location.href = nextUrl;
+          return;
+        }
+
+        showStatus(statusElement, defaultSuccessMessage, 'success');
+        form.reset();
+      } catch (error) {
+        showStatus(statusElement, 'The form could not be sent right now. Please try again in a moment.', 'error');
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.classList.remove('is-loading');
+          submitButton.innerHTML = originalButtonHtml;
+        }
+      }
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const sent = params.get('sent');
+    const formType = params.get('form');
+
+    const contactStatus = document.getElementById('contact-form-status');
+    const remoteStatus = document.getElementById('remote-form-status');
+
+    const contactForm = document.getElementById('contactForm');
+    const remoteForm = document.getElementById('remoteShootForm');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        handleAjaxSubmit(
+          contactForm,
+          contactStatus,
+          'Your message was sent successfully. Thank you for contacting me.',
+          'Sending...'
+        );
+      });
+    }
+
+    if (remoteForm) {
+      remoteForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        handleAjaxSubmit(
+          remoteForm,
+          remoteStatus,
+          'Your remote shoot request was sent successfully. I will contact you soon.',
+          'Sending request...'
+        );
+      });
+    }
+
+    if (sent !== '1') return;
+
+    if (formType === 'remote' && remoteStatus) {
+      showStatus(remoteStatus, 'Your remote shoot request was sent successfully. I will contact you soon.', 'success');
+      remoteStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else if (contactStatus) {
+      showStatus(contactStatus, 'Your message was sent successfully. Thank you for contacting me.', 'success');
+      contactStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  })();
+</script>
 
 </body>
 </html>

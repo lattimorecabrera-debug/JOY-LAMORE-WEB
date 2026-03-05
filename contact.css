@@ -852,3 +852,73 @@ ul.slicknav_nav {
     padding: 5px 7px !important;
   }
 }
+
+.form-status-message {
+  display: none;
+  margin: 0 0 20px;
+  padding: 12px 16px;
+  border: 1px solid #262626;
+  border-radius: 6px;
+  color: #262626;
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.4;
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+}
+
+.form-status-message.is-visible {
+  display: block;
+}
+
+.form-status-message.is-success {
+  border-color: #262626;
+  color: #262626;
+}
+
+.form-status-message.is-error {
+  border-color: #f70606;
+  color: #f70606;
+}
+
+@media only screen and (max-width: 767px) {
+  .form-status-message {
+    margin: 0 0 16px;
+    padding: 10px 12px;
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .form-status-message {
+    font-size: 14px;
+    line-height: 1.35;
+  }
+}
+
+.btn-submit.is-loading,
+.remote-shoot-form button.is-loading {
+  opacity: 0.85;
+  cursor: not-allowed;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+  animation: buttonSpin 0.8s linear infinite;
+}
+
+@keyframes buttonSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
